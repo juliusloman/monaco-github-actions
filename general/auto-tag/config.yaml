@@ -1,12 +1,12 @@
 configs:
-  - id: test-tag-1
+  - id: test-tag-
     type:
       settings:
         schema: builtin:tags.auto-tagging
         scope: environment
     config:
       template: "auto-tag.json"
-      name: "tag1"
+      name: "tag-changed1"
       parameters:
         webAppName: "WebApp1"
     environmentOverrides:
