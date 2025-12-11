@@ -30,5 +30,4 @@ jobs:
       # Real deployment
       - name: Monaco deploy to Dynatrace
         run: |
-          monaco deploy manifest.yaml \
-            --environment development-environment
+          monaco deploy manifest.yaml
