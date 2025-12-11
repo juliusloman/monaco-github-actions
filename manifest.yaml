@@ -1,0 +1,19 @@
+manifestVersion: "1.0"
+projects:
+- name: general
+
+environmentGroups:
+- name: default
+  environments:
+  - name: uqq74301
+    url:
+      value: https://uqq74301.apps.dynatrace.com
+    auth:
+      token:
+        type: environment
+        name: APITOKEN_ALANATA_UQQ74301        
+      oAuth:
+        clientId:
+          name: OAUTHCLIENT_ALANATA_UQQ74301
+        clientSecret:
+          name: OAUTHSECRET_ALANATA_UQQ74301

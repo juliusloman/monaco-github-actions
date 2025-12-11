@@ -1,0 +1,21 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "enabled": true,
+      "valueNormalization": "Leave text as-is",
+      "type": "ME",
+      "attributeRule": {
+        "entityType": "APPLICATION",
+        "conditions": [
+          {
+            "key": "WEB_APPLICATION_NAME",
+            "operator": "CONTAINS",
+            "stringValue": "{{ .webAppName}}",
+            "caseSensitive": true
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+configs:
+  - id: test-tag-1
+    type:
+      settings:
+        schema: builtin:tags.auto-tagging
+        scope: environment
+    config:
+      template: "auto-tag.json"
+      name: "tag1"
+      parameters:
+        webAppName: "WebApp1"
+    environmentOverrides:
+    - environment: uqq74301
+      override:
+        name: "tag1 uqq74301"
+        parameters:
+          content: "Some even better Text!"
+    - environment: swi350_prod
+      override:
+        name: "tag1 swi350"
+        parameters:
+          webAppName: "App in Swi350!"

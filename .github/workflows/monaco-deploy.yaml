@@ -1,0 +1,34 @@
+name: Dynatrace Monaco deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}   # allow manual trigger
+
+jobs:
+  monaco-deploy:
+    runs-on: ubuntu-latest
+
+    # Use official Monaco image so `monaco` is available
+    container:
+      image: dynatrace/dynatrace-configuration-as-code:latest
+
+    env:
+      # from GitHub secrets (Settings → Secrets and variables → Actions)
+      APITOKEN_ALANATA_UQQ74301 : ${{ secrets.APITOKEN_ALANATA_UQQ74301 }}
+      OAUTHCLIENT_ALANATA_UQQ74301: ${{ secrets.OAUTHCLIENT_ALANATA_UQQ74301 }}
+      OAUTHSECRET_ALANATA_UQQ74301: ${{ secrets.OAUTHSECRET_ALANATA_UQQ74301 }}   
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # (Optional) Validate only
+      - name: Monaco dry-run (validate config)
+        run: |
+          monaco deploy manifest.yaml --dry-run
+
+      # Real deployment
+      - name: Monaco deploy to Dynatrace
+        run: |
+          monaco deploy manifest.yaml \
+            --environment development-environment
