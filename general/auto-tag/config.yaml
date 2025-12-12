@@ -8,7 +8,7 @@ configs:
       template: "auto-tag.json"
       name: "tag-changed1"
       parameters:
-        webAppName: "WebApp1"
+        webAppName: "WebApp2"
     environmentOverrides:
     - environment: uqq74301
       override:
